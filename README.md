@@ -43,3 +43,12 @@ Base (business logic) entities could be:
 ## JSON encoding/decoding
 
 * [Cheshire](https://github.com/dakrone/cheshire)
+
+# Dependencies
+
+* [Leiningen](http://leiningen.org/)
+
+# Setup
+
+* Clone repo
+* `lein ring server`
