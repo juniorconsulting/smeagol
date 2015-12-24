@@ -17,38 +17,31 @@ Base (business logic) entities could be:
 
 * Users
 * Services
+* Credentials
 * Projects
 
 # Technology stack
 
 ## Database
 
-* PostgreSQL
-* MySQL
-* MongoDB
-* DynamoDB
-* Etc.
+[RethinkDB](https://www.rethinkdb.com/) is used for persistense.
 
-[SQLKorma](http://sqlkorma.com/) seems like a good choice for a SQL querying DSL. (Reasonably active development and clear documentation.)
-[Lobos](https://github.com/budu/lobos) supports table creation and migrations.
 
 ## Security / Authentication
 
 * [Buddy](https://github.com/funcool/buddy)
 
-## HTTP / Routing
+## HTTP / Routing / JSON
 
 * [Ring](https://github.com/ring-clojure/ring) / [Compojure](https://github.com/weavejester/compojure)
-
-## JSON encoding/decoding
-
-* [Cheshire](https://github.com/dakrone/cheshire)
 
 # Dependencies
 
 * [Leiningen](http://leiningen.org/)
+* [RethinkDB](https://www.rethinkdb.com/)
 
 # Setup
 
 * Clone repo
-* `lein ring server`
+* Start `rethinkdb`
+* `lein ring server-headless`
