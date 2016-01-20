@@ -32,6 +32,13 @@
           (r/table-create name)
           (r/run conn)))))
 
+(defn create-index [db table index]
+  (with-open [conn (connect)]
+    (-> (r/db db)
+        (r/table table)
+        (r/index-create index)
+        (r/run conn))))
+
 (defn migrate []
   (do 
     (if (not (database-exists?))

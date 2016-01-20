@@ -9,6 +9,7 @@
                  [ring/ring-json "0.3.1"]
                  [ring/ring-jetty-adapter "1.4.0"]
                  [ring/ring-defaults "0.1.4"]
+                 [ring-cors "0.1.7"]
                  [instaparse "1.4.1"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler smeagol.core/app
