@@ -10,7 +10,9 @@
                  [ring/ring-jetty-adapter "1.4.0"]
                  [ring/ring-defaults "0.1.4"]
                  [ring-cors "0.1.7"]
-                 [instaparse "1.4.1"]]
+                 [instaparse "1.4.1"]
+                 [clj-http "2.1.0"]
+                 [org.clojure/data.json "0.2.6"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler smeagol.core/app
          :init smeagol.models.migration/migrate}

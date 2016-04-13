@@ -8,7 +8,8 @@
             [ring.middleware.defaults :refer [wrap-defaults api-defaults]]
             [ring.middleware.cors :refer [wrap-cors]]
             [smeagol.routes.api :as api]
-            [smeagol.models.migration :as schema])
+            [smeagol.models.migration :as schema]
+            [smeagol.middleware.auth :refer [wrap-auth]])
   (:gen-class))
 
 (defroutes app-routes
@@ -21,7 +22,8 @@
       (middleware/wrap-json-response)
       (wrap-defaults api-defaults)
       (wrap-cors :access-control-allow-origin [#"http://localhost:3449"]
-                 :access-control-allow-methods [:get :put :post :delete])))
+                 :access-control-allow-methods [:get :put :post :delete])
+      (wrap-auth)))
 
 (defn start [port]
   (run-jetty #'app {:port port
