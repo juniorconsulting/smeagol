@@ -4,32 +4,35 @@ Sméagol is the backend for Junior Consultings service database. The goal is to 
 
 A service is something like Heroku, Mailchimp, Surveymonkey, Mandrill, etc.
 
-
-We seem to agree that either Django/Python or Clojure are the best choices for technologies. In the intereset of learning something new and different, I propose we use Clojure.
-
+The project is implemented as a microservice-inspired, RESTful API served over HTTP(S).
+It is implemented in Clojure.
+It uses [`jrc-auth`](https://github.com/juniorconsulting/jrc-auth) for authentication.
 # Clojure resources
 
-TODO: List some resources for learning Clojure.
+[Brave Clojure](http://www.braveclojure.com/) is a great resource for learning Clojure (and Emacs).
 
 # Architecture
 
-Base (business logic) entities could be:
+A service looks something like this:
 
-* Users
-* Services
-* Credentials
-* Projects
+```
+{
+    "id": "7af472ee-054e-4986-81a5-64163b4be67b",
+    "password": "derp", // TODO: not really
+    "projectids": [ // Ids of the projects that this service is associated with.
+        2           // If empty, the service is assumed to be available to everyone
+    ],
+    "title": "Google Drive",
+    "userid": 1, // jrc-auth userid
+    "username": "oyvindrobertsen"
+}
+```
 
 # Technology stack
 
 ## Database
 
-[RethinkDB](https://www.rethinkdb.com/) is used for persistense.
-
-
-## Security / Authentication
-
-* [Buddy](https://github.com/funcool/buddy)
+[RethinkDB](https://www.rethinkdb.com/)
 
 ## HTTP / Routing / JSON
 
